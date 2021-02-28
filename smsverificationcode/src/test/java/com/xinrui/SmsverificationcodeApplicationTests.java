@@ -22,7 +22,7 @@ class SmsverificationcodeApplicationTests {
     void contextLoads() {
 
                 //连接阿里云
-                DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "accessKeyId", "secret");
+                DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "accessKey", "secret");
                 IAcsClient client = new DefaultAcsClient(profile);
 
                 //构建请求
@@ -41,7 +41,6 @@ class SmsverificationcodeApplicationTests {
                 Map<String,Object> map=new HashMap<>();
                 map.put("code",1324);
                 request.putQueryParameter("TemplateParam", JSONObject.toJSONString(map));
-
 
                 try {
                     CommonResponse response = client.getCommonResponse(request);
